@@ -14,21 +14,25 @@ class Board
         bc_6 = Boardcase.new(8, "8")
         bc_7 = Boardcase.new(9, "9")
 =end
-        @cases = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+        @cases = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
 
     def show
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
-        puts " "*2 + cases[0].to_s + " " * 2 + "|" + " "*2 + cases[1].to_s + " " * 2 + "|" + " "*2 + cases[2].to_s + " " * 2
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
-        puts "-"*17
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
-        puts " "*2 + cases[3].to_s + " " * 2 + "|" + " "*2 + cases[4].to_s + " " * 2 + "|" + " "*2 + cases[5].to_s + " " * 2
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
-        puts "-"*17
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
-        puts " "*2 + cases[6].to_s + " " * 2 + "|" + " "*2 + cases[7].to_s + " " * 2 + "|" + " "*2 + cases[8].to_s + " " * 2
-        puts " "*5 + "|" + " "*5 + "|" + " "*5
+        puts " " + " "*3 + " "*2 + "A" + " " * 2 + " " + " "*2 + "B" + " " * 2 + " " + " "*2 + "C"+ " " * 2
+        puts ""
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
+        puts "1" + " "*3 + " "*2 + cases[0].to_s + " " * 2 + "|" + " "*2 + cases[1].to_s + " " * 2 + "|" + " "*2 + cases[2].to_s + " " * 2
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
+        puts " " + " "*3 + "-"*17
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
+        puts "2" + " "*3 + " "*2 + cases[3].to_s + " " * 2 + "|" + " "*2 + cases[4].to_s + " " * 2 + "|" + " "*2 + cases[5].to_s + " " * 2
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
+        puts " " + " "*3 + "-"*17
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
+        puts "3" + " "*3 + " "*2 + cases[6].to_s + " " * 2 + "|" + " "*2 + cases[7].to_s + " " * 2 + "|" + " "*2 + cases[8].to_s + " " * 2
+        puts " " + " "*3 + " "*5 + "|" + " "*5 + "|" + " "*5
     end
 
 =begin
@@ -38,15 +42,13 @@ class Board
     end
 =end
 
-    def set_case_value(choix,mark)
-    #  choix = @player.ask_choice
-    #  case[choix - 1] = @player.mark
-      choice = choix
-      @cases[choix -1] = mark
+    def set_case_value(choix, symbol)
+
+      @cases[choix - 1] = symbol
     end
 
     def is_playable?(choix)
-      return (1..9).include?(@cases[choix - 1].to_i) ? true : false
+      return @cases[choix - 1] == " " ? true : false
 
     end
 
@@ -78,7 +80,7 @@ class Board
     end
 
     def reset
-      @cases = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      @cases = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
 end
 
