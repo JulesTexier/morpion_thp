@@ -70,11 +70,6 @@ class Board
       end
 
       if @cases[0] == @cases[4] && @cases[4] == @cases[8]
-        return true
-      elsif @cases[2] == @cases[4] && @cases[4] == @cases[6]
-        return true
-      end
-
 
       return false
     end
